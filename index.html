@@ -1,165 +1,1782 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IRONMAN Malaysia 2026｜行程與地圖</title>
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:#f2f6fa;color:#24364a;font:16px/1.7 system-ui,-apple-system,sans-serif}
-header{background:#153451;color:#fff;padding:36px 22px}
-header>div,main{max-width:1000px;margin:auto}
-h1{font-size:clamp(27px,5vw,40px);line-height:1.4}
-nav{position:sticky;top:0;z-index:3;background:#fff;display:flex;justify-content:center;gap:7px;flex-wrap:wrap;padding:10px;border-bottom:1px solid #ddd}
-a{color:#116765}
-nav a{background:#eef4fa;padding:4px 12px;border-radius:20px;text-decoration:none}
-main{padding:24px 15px}
-section{background:#fff;border-radius:14px;padding:24px;margin-bottom:22px;border:1px solid #dce5ef}
-h2{margin-top:0;font-size:23px}
-h3{font-size:17px;margin:18px 0 6px}
-p{margin:6px 0;color:#52667a}
-header p{color:#e0eaf5}
-.row{display:grid;grid-template-columns:190px 1fr;gap:18px;border-top:1px solid #e6edf4;padding:16px 0}
-.time{font-weight:650;color:#285471}
-.badge{font-size:12px;padding:3px 8px;border-radius:5px;background:#fff1da;color:#7e550e}
-.fixed{background:#daf2e9;color:#176347}
-.controls{display:flex;gap:10px;align-items:center;margin-bottom:15px}
-select{flex:1;min-width:0;padding:10px;font:inherit;border:1px solid #bdccda;border-radius:8px;background:#fff}
-iframe{width:100%;height:420px;border:1px solid #dce5ef;border-radius:12px;background:#edf3f9}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
-.actions a,button{background:#087974;color:#fff;border:0;border-radius:8px;padding:9px 14px;text-decoration:none;font:inherit;cursor:pointer}
-.warning{background:#fff7e9;padding:13px;border-left:4px solid #e0a33e;margin:16px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.place{background:#f1f6fb;border-radius:9px;padding:14px}
-.place button{padding:5px 10px;font-size:13px;margin-top:7px}
-small{color:#52667a}
-.tabs{display:flex;gap:8px;margin:12px 0}
-.tabs button{background:#eef4fa;color:#153451}
-.tabs button.on{background:#087974;color:#fff}
-table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #e6edf4}
-th{font-size:13px;color:#52667a}
-.clock{font-variant-numeric:tabular-nums;color:#153451;font-weight:650}
-.total-row{background:#f1f6fb;font-weight:650}
-footer{text-align:center;padding:20px;color:#607489;font-size:13px}
-@media(max-width:650px){
-.row,.grid{grid-template-columns:1fr}
-.row{gap:4px}
-.controls{flex-direction:column;align-items:stretch}
-iframe{height:330px}
-section{padding:18px}
-nav a{font-size:13px}
-}
-@media print{
-nav,button,.controls,.actions,iframe{display:none}
-body{background:#fff}
-header{background:#fff;color:#24364a}
-header p{color:#52667a}
-.row,tr{break-inside:avoid}
-section{border-radius:0}
-.sheet{display:block!important}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IRONMAN Malaysia 2026｜行程與地圖</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      margin: 0;
+      background: #f2f6fa;
+      color: #24364a;
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    header {
+      padding: 36px 22px;
+      background: #153451;
+      color: #fff;
+    }
+
+    .container,
+    main {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(27px, 5vw, 40px);
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    h3 {
+      margin: 5px 0;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 6px 0;
+      color: #52667a;
+    }
+
+    header p {
+      color: #e0eaf5;
+    }
+
+    a {
+      color: #116765;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px;
+      border-bottom: 1px solid #dce5ef;
+      background: #fff;
+    }
+
+    nav a {
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: #eef4fa;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #dcebe9;
+    }
+
+    main {
+      padding: 24px 15px;
+    }
+
+    section {
+      margin-bottom: 22px;
+      padding: 24px;
+      border: 1px solid #dce5ef;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-top: 1px solid #e6edf4;
+    }
+
+    .time {
+      color: #285471;
+      font-weight: 650;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: #fff1da;
+      color: #7e550e;
+      font-size: 12px;
+    }
+
+    .fixed {
+      background: #daf2e9;
+      color: #176347;
+    }
+
+    .warning {
+      margin: 16px 0;
+      padding: 13px;
+      border-left: 4px solid #e0a33e;
+      background: #fff7e9;
+    }
+
+    .note {
+      color: #52667a;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .place {
+      padding: 14px;
+      border-radius: 9px;
+      background: #f1f6fb;
+    }
+
+    .place small {
+      color: #52667a;
+    }
+
+    .button,
+    .print-button {
+      display: inline-block;
+      padding: 9px 14px;
+      border: 0;
+      border-radius: 8px;
+      background: #087974;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .place .button {
+      margin-top: 8px;
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+
+    .map-buttons,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .map-button {
+      padding: 9px 12px;
+      border: 1px solid #cad8e5;
+      border-radius: 8px;
+      background: #eef4fa;
+      color: #153451;
+      text-decoration: none;
+    }
+
+    .map-button:hover,
+    .map-button:focus-visible {
+      background: #dcebe9;
+    }
+
+    .map-frame {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: 1px solid #dce5ef;
+      border-radius: 12px;
+      background: #edf3f9;
+    }
+
+    .map-directory {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .map-directory-item {
+      padding: 12px;
+      border: 1px solid #e6edf4;
+      border-radius: 8px;
+    }
+
+    .map-directory-item a {
+      display: inline-block;
+      margin: 5px 14px 0 0;
+    }
+
+    .scenario-radio {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .scenario-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .scenario-tabs label {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 2px solid transparent;
+      border-radius: 9px;
+      background: #eef4fa;
+      color: #153451;
+      cursor: pointer;
+    }
+
+    #plan-high:checked ~ .scenario-tabs label[for="plan-high"],
+    #plan-low:checked ~ .scenario-tabs label[for="plan-low"],
+    #plan-custom:checked ~ .scenario-tabs label[for="plan-custom"] {
+      background: #087974;
+      color: #fff;
+    }
+
+    #plan-high:focus-visible ~ .scenario-tabs label[for="plan-high"],
+    #plan-low:focus-visible ~ .scenario-tabs label[for="plan-low"],
+    #plan-custom:focus-visible ~ .scenario-tabs label[for="plan-custom"] {
+      outline: 3px solid #e0a33e;
+      outline-offset: 3px;
+    }
+
+    .scenario-panel {
+      display: none;
+    }
+
+    #plan-high:checked ~ .high-panel,
+    #plan-low:checked ~ .low-panel,
+    #plan-custom:checked ~ .custom-panel {
+      display: block;
+    }
+
+    .custom-panel table {
+      min-width: 0;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 15px 0;
+    }
+
+    .input-grid label {
+      display: block;
+      color: #52667a;
+      font-size: 14px;
+    }
+
+    .input-grid input {
+      width: 100%;
+      margin-top: 4px;
+      padding: 10px;
+      border: 1px solid #bdccda;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .input-grid input.invalid {
+      border-color: #c0392b;
+      background: #fff2f0;
+    }
+
+    .preset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .preset-buttons button {
+      padding: 8px 12px;
+      border: 1px solid #cad8e5;
+      border-radius: 8px;
+      background: #eef4fa;
+      color: #153451;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .summary-card {
+      padding: 14px;
+      border-radius: 9px;
+      background: #f1f6fb;
+    }
+
+    .summary-card span {
+      display: block;
+      color: #52667a;
+      font-size: 13px;
+    }
+
+    .summary-card strong {
+      display: block;
+      color: #153451;
+      font-size: 24px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 540px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 9px;
+      border-bottom: 1px solid #e6edf4;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f6f9fc;
+      color: #52667a;
+      font-size: 13px;
+    }
+
+    .clock {
+      color: #153451;
+      font-weight: 650;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .total-row {
+      background: #edf6f5;
+      font-weight: 650;
+    }
+
+    footer {
+      padding: 20px;
+      color: #607489;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      html {
+        scroll-padding-top: 125px;
+      }
+
+      .row,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        gap: 4px;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      nav a {
+        padding: 4px 9px;
+        font-size: 13px;
+      }
+
+      .map-frame {
+        height: 330px;
+      }
+
+      .input-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .summary-card strong {
+        font-size: 22px;
+      }
+    }
+
+    @media print {
+      nav,
+      .print-button,
+      .map-buttons,
+      .map-frame,
+      .actions,
+      .scenario-tabs,
+      .scenario-radio {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      header {
+        background: #fff;
+        color: #24364a;
+      }
+
+      header p {
+        color: #52667a;
+      }
+
+      section {
+        border-radius: 0;
+      }
+
+      .custom-panel {
+        display: none !important;
+      }
+
+      .scenario-panel:not(.custom-panel) {
+        display: block !important;
+        margin-bottom: 25px;
+      }
+
+      .row,
+      tr,
+      .summary-card {
+        break-inside: avoid;
+      }
+
+      h2,
+      h3 {
+        break-after: avoid;
+      }
+
+      .table-wrap {
+        overflow: visible;
+      }
+
+      table {
+        min-width: 0;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .summary-card {
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header><div>
-<h1>IRONMAN Malaysia 2026<br>行程與 Google Maps</h1>
-<p>11/18–11/23｜1 位全程選手＋3 位加油團｜選手優先・租車移動</p>
-<p>住宿：11/19 入住、11/22 退房，共 3 晚。</p>
-<button id="print-button" type="button">列印／另存 PDF</button>
-</div></header>
-<nav aria-label="日期與地圖導覽">
-<a href="#maps">地圖</a><a href="#estimate">預估時間</a>
-<a href="#day0">11/18</a><a href="#day1">11/19</a><a href="#day2">11/20</a>
-<a href="#day3">11/21</a><a href="#day4">11/22</a><a href="#day5">11/23</a>
-</nav>
-<main>
-<section id="maps">
-<h2>Google Maps 地點切換</h2>
-<div class="controls"><label for="place-select">選擇地點</label>
-<select id="place-select">
-<option value="0">住宿｜Sunday Telaga Terrace Boutique Resort</option>
-<option value="1">報到／T2／領車｜Mahsuri International Exhibition Centre (MIEC)</option>
-<option value="2">下水點／T1｜Holiday Villa Resort &amp; Beachclub Langkawi</option>
-<option value="3">終點｜Pelangi Beach Resort &amp; Spa, Langkawi</option>
-<option value="4">機場｜Langkawi International Airport</option>
-</select></div>
-<h3 id="map-name" aria-live="polite"></h3>
-<iframe id="map-frame" title="Google Maps 地點地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-<div class="actions"><a id="map-open" target="_blank" rel="noopener noreferrer">在 Google Maps 開啟</a><a id="map-nav" target="_blank" rel="noopener noreferrer">導航至此地點</a></div>
-<p><small>以場館名稱搜尋，並非已驗證座標或比賽入口。需要網路；若內嵌無法顯示，請使用外開連結。</small></p>
-</section>
-<section>
-<h2>主要地點</h2>
-<div class="grid">
-<div class="place"><small>住宿</small><h3>Sunday Telaga Terrace Boutique Resort</h3><button type="button" class="place-button" data-place="0">查看地圖</button></div>
-<div class="place"><small>報到／T2／領車</small><h3>Mahsuri International Exhibition Centre (MIEC)</h3><button type="button" class="place-button" data-place="1">查看地圖</button></div>
-<div class="place"><small>下水點／T1</small><h3>Holiday Villa Resort &amp; Beachclub Langkawi</h3><button type="button" class="place-button" data-place="2">查看地圖</button></div>
-<div class="place"><small>終點</small><h3>Pelangi Beach Resort &amp; Spa, Langkawi</h3><button type="button" class="place-button" data-place="3">查看地圖</button></div>
-<div class="place"><small>機場</small><h3>Langkawi International Airport</h3><button type="button" class="place-button" data-place="4">查看地圖</button></div>
-</div>
-<div class="warning">「官方／航班」是附件時間；「建議／暫估／彈性」是規劃時段，不代表已確認車程。比賽日交通、停車與接駁尚待確認。</div>
-</section>
-<section id="estimate">
-<h2>選手預估比賽時間</h2>
-<p>入水以 <strong>08:00</strong> 計算。官方 Rolling Start 首發是 07:45，本表是本隊目標，不是成績保證。T1 皆為 0:06，T2 皆為 0:04。</p>
-<div class="tabs">
-<button type="button" id="tab-high" class="on">高標 20:15</button>
-<button type="button" id="tab-low">低標 21:05</button>
-</div>
-<div id="sheet-high" class="sheet">
-<h3>高標｜總用時 12:15｜完賽 20:15</h3>
-<table>
-<thead><tr><th>項目</th><th>距離</th><th>預估用時</th><th>累計</th><th>預計鐘點</th></tr></thead>
-<tbody>
-<tr><td>游泳</td><td>3.8 km</td><td>1:40</td><td>1:40</td><td class="clock">09:40 上岸</td></tr>
-<tr><td>T1</td><td>轉換</td><td>0:06</td><td>1:46</td><td class="clock">09:46 離開 T1</td></tr>
-<tr><td>自行車</td><td>180 km</td><td>6:10</td><td>7:56</td><td class="clock">15:56 進 T2</td></tr>
-<tr><td>T2</td><td>轉換</td><td>0:04</td><td>8:00</td><td class="clock">16:00 開跑</td></tr>
-<tr><td>跑步</td><td>42.195 km</td><td>4:15</td><td>12:15</td><td class="clock">20:15 完賽</td></tr>
-<tr class="total-row"><td>預估完賽</td><td>226.2 km</td><td>12:15</td><td>12:15</td><td class="clock">20:15</td></tr>
-</tbody>
-</table>
-<p>前往 Pelangi：約 <strong>18:45–19:15</strong>（完賽前 60–90 分鐘）。</p>
-</div>
-<div id="sheet-low" class="sheet" hidden>
-<h3>低標｜總用時 13:05｜完賽 21:05</h3>
-<table>
-<thead><tr><th>項目</th><th>距離</th><th>預估用時</th><th>累計</th><th>預計鐘點</th></tr></thead>
-<tbody>
-<tr><td>游泳</td><td>3.8 km</td><td>1:45</td><td>1:45</td><td class="clock">09:45 上岸</td></tr>
-<tr><td>T1</td><td>轉換</td><td>0:06</td><td>1:51</td><td class="clock">09:51 離開 T1</td></tr>
-<tr><td>自行車</td><td>180 km</td><td>6:30</td><td>8:21</td><td class="clock">16:21 進 T2</td></tr>
-<tr><td>T2</td><td>轉換</td><td>0:04</td><td>8:25</td><td class="clock">16:25 開跑</td></tr>
-<tr><td>跑步</td><td>42.195 km</td><td>4:40</td><td>13:05</td><td class="clock">21:05 完賽</td></tr>
-<tr class="total-row"><td>預估完賽</td><td>226.2 km</td><td>13:05</td><td>13:05</td><td class="clock">21:05</td></tr>
-</tbody>
-</table>
-<p>前往 Pelangi：約 <strong>19:35–20:05</strong>（完賽前 60–90 分鐘）。</p>
-</div>
-<div class="warning">若實際入水晚於 08:00，整張表的鐘點要往後順延，用時不變。</div>
-</section>
-<section id="day0"><h2>11/18（三）｜前往桃園機場</h2>
-<div class="row"><div class="time">21:30 左右</div><div><span class="badge">建議</span><h3>桃園第一航廈集合、報到</h3><p>預留行李與車箱處理時間，依航空公司要求調整。</p></div></div></section>
-<section id="day1"><h2>11/19（四）｜抵達、報到與入住</h2>
-<div class="row"><div class="time">00:30–05:10</div><div><span class="badge fixed">航班</span><h3>AK177 桃園 → 吉隆坡第二航廈</h3><p>機上休息。</p></div></div>
-<div class="row"><div class="time">05:10–08:25</div><div><span class="badge fixed">航班</span><h3>吉隆坡轉機</h3><p>早餐、確認轉機及行李方式。</p></div></div>
-<div class="row"><div class="time">08:25–09:35</div><div><span class="badge fixed">航班</span><h3>AK6306 吉隆坡 → 蘭卡威</h3><p>09:35 預定抵達。</p></div></div>
-<div class="row"><div class="time">09:35–11:00</div><div><span class="badge">暫估</span><h3>領行李、車箱、租車取車 → MIEC</h3><p>不是已確認車程。</p></div></div>
-<div class="row"><div class="time">11:00–12:00</div><div><span class="badge">建議</span><h3>MIEC 報到、領物資</h3><p>官方報到開放 11:00–18:00。</p></div></div>
-<div class="row"><div class="time">12:00–13:00</div><div><span class="badge">建議</span><h3>午餐</h3><p>報到後用餐。</p></div></div>
-<div class="row"><div class="time">13:00–14:00</div><div><span class="badge">暫估</span><h3>前往飯店、寄放行李或入住</h3><p>實際入住時刻待確認。</p></div></div>
-<div class="row"><div class="time">14:00–16:00</div><div><span class="badge">建議</span><h3>組車、裝備檢查、休息</h3><p>加油團協助採買。</p></div></div>
-<div class="row"><div class="time">16:00–17:00</div><div><span class="badge">暫估</span><h3>返回 MIEC</h3><p>依交通調整。</p></div></div>
-<div class="row"><div class="time">17:00–19:30</div><div><span class="badge fixed">官方</span><h3>MIEC Welcome Function</h3><p>Race Director Update＋晚餐，限選手；加油團另行用餐。</p></div></div>
-<div class="row"><div class="time">活動後</div><div><span class="badge">建議</span><h3>返回飯店休息</h3><p>不追加行程。</p></div></div></section>
-<section id="day2"><h2>11/20（五）｜賽前準備、寄車與寄袋</h2>
-<div class="row"><div class="time">07:30–08:30</div><div><span class="badge">建議</span><h3>早餐</h3><p>不安排額外早起活動。</p></div></div>
-<div class="row"><div class="time">08:30–09:30</div><div><span class="badge">建議</span><h3>選手既定短活動、車況確認</h3><p>試游／試騎依選手計畫及官方允許規定。</p></div></div>
-<div class="row"><div class="time">09:30–11:00</div><div><span class="badge">建議</span><h3>整理 Bike Gear Bag、Run Gear Bag</h3><p>選手最後確認。</p></div></div>
-<div class="row"><div class="time">11:00–12:00</div><div><span class="badge">建議</span><h3>午餐、裝車</h3><p>攜帶自行車與裝備袋。</p></div></div>
-<div class="row"><div class="time">12:00–12:30</div><div><span class="badge">暫估</span><h3>前往 Holiday Villa（T1）</h3><p>車程、停車與步行待確認。</p></div></div>
-<div class="row"><div class="time">12:30–13:00</div><div><span class="badge">建議</span><h3>T1 寄車與 Bike Gear Bag</h3><p>官方開放 12:30–18:00。</p></div></div>
-<div class="row"><div class="time">13:00</div><div><span class="badge fixed">官方</span><h3>T1 Transition Tour</h3><p>一般導覽另有 15:00、17:00 場次。</p></div></div>
-<div 
+  <header>
+    <div class="container">
+      <h1>IRONMAN Malaysia 2026<br>行程與 Google Maps</h1>
+
+      <p>
+        11/18–11/23｜1 位全程選手＋3 位加油團｜
+        選手優先・租車移動
+      </p>
+
+      <p>住宿：11/19 入住、11/22 退房，共 3 晚。</p>
+
+      <p>本隊預估入水 08:00｜高標完賽 20:15｜低標完賽 21:05</p>
+
+      <button
+        class="print-button"
+        id="print-button"
+        type="button"
+      >
+        列印／另存 PDF
+      </button>
+    </div>
+  </header>
+
+  <nav aria-label="日期與地圖導覽">
+    <a href="#maps">地圖</a>
+    <a href="#estimate">預估時間</a>
+    <a href="#day0">11/18</a>
+    <a href="#day1">11/19</a>
+    <a href="#day2">11/20</a>
+    <a href="#day3">11/21</a>
+    <a href="#day4">11/22</a>
+    <a href="#day5">11/23</a>
+  </nav>
+
+  <main>
+    <!-- 地圖切換不依賴 JavaScript -->
+    <section id="maps">
+      <h2>Google Maps 地點切換</h2>
+
+      <p>
+        點選地點，在下方載入地圖。
+        若地圖空白或顯示拒絕連線，請使用下方各地點的
+        「外開地圖」或「導航」。
+      </p>
+
+      <div class="map-buttons" aria-label="選擇地圖地點">
+        <a
+          class="map-button"
+          href="https://maps.google.com/maps?q=Sunday+Telaga+Terrace+Boutique+Resort+Langkawi+Malaysia&amp;output=embed"
+          target="location-map"
+        >住宿</a>
+
+        <a
+          class="map-button"
+          href="https://maps.google.com/maps?q=Mahsuri+International+Exhibition+Centre+Langkawi+Malaysia&amp;output=embed"
+          target="location-map"
+        >報到／T2／領車</a>
+
+        <a
+          class="map-button"
+          href="https://maps.google.com/maps?q=Holiday+Villa+Resort+Beachclub+Langkawi+Malaysia&amp;output=embed"
+          target="location-map"
+        >下水點／T1</a>
+
+        <a
+          class="map-button"
+          href="https://maps.google.com/maps?q=Pelangi+Beach+Resort+Spa+Langkawi+Malaysia&amp;output=embed"
+          target="location-map"
+        >終點</a>
+
+        <a
+          class="map-button"
+          href="https://maps.google.com/maps?q=Langkawi+International+Airport+Malaysia&amp;output=embed"
+          target="location-map"
+        >機場</a>
+      </div>
+
+      <iframe
+        class="map-frame"
+        name="location-map"
+        title="Google Maps 地點地圖，預設顯示住宿"
+        src="https://maps.google.com/maps?q=Sunday+Telaga+Terrace+Boutique+Resort+Langkawi+Malaysia&amp;output=embed"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+
+      <div class="map-directory">
+        <div class="map-directory-item">
+          <h3>住宿｜Sunday Telaga Terrace Boutique Resort</h3>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Sunday+Telaga+Terrace+Boutique+Resort+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >外開地圖</a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Sunday+Telaga+Terrace+Boutique+Resort+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >導航</a>
+        </div>
+
+        <div class="map-directory-item">
+          <h3>
+            報到／T2／領車｜
+            Mahsuri International Exhibition Centre（MIEC）
+          </h3>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Mahsuri+International+Exhibition+Centre+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >外開地圖</a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Mahsuri+International+Exhibition+Centre+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >導航</a>
+        </div>
+
+        <div class="map-directory-item">
+          <h3>
+            下水點／T1｜
+            Holiday Villa Resort &amp; Beachclub Langkawi
+          </h3>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Holiday+Villa+Resort+Beachclub+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >外開地圖</a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Holiday+Villa+Resort+Beachclub+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >導航</a>
+        </div>
+
+        <div class="map-directory-item">
+          <h3>終點｜Pelangi Beach Resort &amp; Spa, Langkawi</h3>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Pelangi+Beach+Resort+Spa+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >外開地圖</a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Pelangi+Beach+Resort+Spa+Langkawi+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >導航</a>
+        </div>
+
+        <div class="map-directory-item">
+          <h3>機場｜Langkawi International Airport</h3>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Langkawi+International+Airport+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >外開地圖</a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Langkawi+International+Airport+Malaysia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >導航</a>
+        </div>
+      </div>
+
+      <div class="warning">
+        地圖以場館名稱搜尋，並非已驗證座標或比賽入口。
+        內嵌與外開地圖均需要網路；導航起點由 Google Maps 選擇。
+        比賽日入口、停車與交通管制請以現場指示為準。
+      </div>
+    </section>
+
+    <section>
+      <h2>行程標示說明</h2>
+
+      <p>
+        <span class="badge fixed">官方／航班</span>
+        為原先提供附件所列時間，尚未重新查核最新異動。
+      </p>
+
+      <p>
+        <span class="badge">建議／暫估／彈性</span>
+        為規劃時段，不代表已確認車程或預約。
+      </p>
+
+      <div class="warning">
+        比賽日交通、停車、接駁及陪同者可進入區域尚待確認。
+      </div>
+    </section>
+
+    <!-- 高低標切換使用原生 radio + CSS，不依賴 JavaScript -->
+    <section id="estimate">
+      <h2>選手預估比賽時間</h2>
+
+      <p>
+        本隊預估入水時間為 08:00。
+        下列鐘點以各段預估用時累加，並非即時成績。
+      </p>
+
+      <p>
+        高標與低標皆包含 T1 0:06、T2 0:04。
+        用時格式為「時:分」。
+      </p>
+
+      <input
+        class="scenario-radio"
+        type="radio"
+        name="race-plan"
+        id="plan-high"
+        checked
+      >
+
+      <input
+        class="scenario-radio"
+        type="radio"
+        name="race-plan"
+        id="plan-low"
+      >
+
+      <input
+        class="scenario-radio"
+        type="radio"
+        name="race-plan"
+        id="plan-custom"
+      >
+
+      <div class="scenario-tabs" aria-label="選擇預估方案">
+        <label for="plan-high">高標｜20:15 完賽</label>
+        <label for="plan-low">低標｜21:05 完賽</label>
+        <label for="plan-custom">自訂輸入</label>
+      </div>
+
+      <div class="scenario-panel high-panel">
+        <h3>高標預估</h3>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>預估入水</span>
+            <strong>08:00</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>總用時</span>
+            <strong>12:15</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>預估完賽</span>
+            <strong>20:15</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap" tabindex="0" aria-label="高標時間表，可橫向滑動">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">距離</th>
+                <th scope="col">預估用時</th>
+                <th scope="col">累計用時</th>
+                <th scope="col">預計鐘點</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>游泳</td>
+                <td>3.8 km</td>
+                <td>1:40</td>
+                <td>1:40</td>
+                <td class="clock">09:40 上岸</td>
+              </tr>
+
+              <tr>
+                <td>T1</td>
+                <td>轉換</td>
+                <td>0:06</td>
+                <td>1:46</td>
+                <td class="clock">09:46 開始騎車</td>
+              </tr>
+
+              <tr>
+                <td>自行車</td>
+                <td>180 km</td>
+                <td>6:10</td>
+                <td>7:56</td>
+                <td class="clock">15:56 進 T2</td>
+              </tr>
+
+              <tr>
+                <td>T2</td>
+                <td>轉換</td>
+                <td>0:04</td>
+                <td>8:00</td>
+                <td class="clock">16:00 開始跑步</td>
+              </tr>
+
+              <tr>
+                <td>跑步</td>
+                <td>42.195 km</td>
+                <td>4:15</td>
+                <td>12:15</td>
+                <td class="clock">20:15 完賽</td>
+              </tr>
+
+              <tr class="total-row">
+                <td>合計</td>
+                <td>約 226.2 km</td>
+                <td>12:15</td>
+                <td>12:15</td>
+                <td class="clock">20:15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="warning">
+          依原行程「完賽前 60–90 分鐘前往終點」的安排：
+          高標對應時段為 18:45–19:15。
+          這是倒推的規劃鐘點，不是已驗證的出發或抵達保證。
+        </div>
+      </div>
+
+      <div class="scenario-panel low-panel">
+        <h3>低標預估</h3>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>預估入水</span>
+            <strong>08:00</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>總用時</span>
+            <strong>13:05</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>預估完賽</span>
+            <strong>21:05</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap" tabindex="0" aria-label="低標時間表，可橫向滑動">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">距離</th>
+                <th scope="col">預估用時</th>
+                <th scope="col">累計用時</th>
+                <th scope="col">預計鐘點</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>游泳</td>
+                <td>3.8 km</td>
+                <td>1:45</td>
+                <td>1:45</td>
+                <td class="clock">09:45 上岸</td>
+              </tr>
+
+              <tr>
+                <td>T1</td>
+                <td>轉換</td>
+                <td>0:06</td>
+                <td>1:51</td>
+                <td class="clock">09:51 開始騎車</td>
+              </tr>
+
+              <tr>
+                <td>自行車</td>
+                <td>180 km</td>
+                <td>6:30</td>
+                <td>8:21</td>
+                <td class="clock">16:21 進 T2</td>
+              </tr>
+
+              <tr>
+                <td>T2</td>
+                <td>轉換</td>
+                <td>0:04</td>
+                <td>8:25</td>
+                <td class="clock">16:25 開始跑步</td>
+              </tr>
+
+              <tr>
+                <td>跑步</td>
+                <td>42.195 km</td>
+                <td>4:40</td>
+                <td>13:05</td>
+                <td class="clock">21:05 完賽</td>
+              </tr>
+
+              <tr class="total-row">
+                <td>合計</td>
+                <td>約 226.2 km</td>
+                <td>13:05</td>
+                <td>13:05</td>
+                <td class="clock">21:05</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="warning">
+          依原行程「完賽前 60–90 分鐘前往終點」的安排：
+          低標對應時段為 19:35–20:05。
+          這是倒推的規劃鐘點，不是已驗證的出發或抵達保證。
+        </div>
+      </div>
+
+      <div class="scenario-panel custom-panel">
+        <h3>自訂輸入｜動態計算</h3>
+
+        <p>
+          輸入入水時間與各段預計用時（格式「時:分」，例如 1:40），
+          下方會自動算出累計用時與預計鐘點。
+          輸入值只存在這支手機或電腦，別人開連結看不到。
+        </p>
+
+        <div class="preset-buttons">
+          <button type="button" data-preset="high">帶入高標</button>
+          <button type="button" data-preset="low">帶入低標</button>
+        </div>
+
+        <div class="input-grid">
+          <label>入水時間（鐘點）
+            <input id="c-start" inputmode="numeric" value="08:00" placeholder="08:00">
+          </label>
+          <label>游泳 3.8 km
+            <input id="c-swim" inputmode="numeric" value="1:40" placeholder="1:40">
+          </label>
+          <label>T1
+            <input id="c-t1" inputmode="numeric" value="0:06" placeholder="0:06">
+          </label>
+          <label>自行車 180 km
+            <input id="c-bike" inputmode="numeric" value="6:10" placeholder="6:10">
+          </label>
+          <label>T2
+            <input id="c-t2" inputmode="numeric" value="0:04" placeholder="0:04">
+          </label>
+          <label>跑步 42.195 km
+            <input id="c-run" inputmode="numeric" value="4:15" placeholder="4:15">
+          </label>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>預估入水</span>
+            <strong id="c-sum-start">08:00</strong>
+          </div>
+          <div class="summary-card">
+            <span>總用時</span>
+            <strong id="c-sum-total">12:15</strong>
+          </div>
+          <div class="summary-card">
+            <span>預估完賽</span>
+            <strong id="c-sum-finish">20:15</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap" tabindex="0" aria-label="自訂時間表，可橫向滑動">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">預估用時</th>
+                <th scope="col">累計用時</th>
+                <th scope="col">預計鐘點</th>
+              </tr>
+            </thead>
+            <tbody id="c-body">
+              <tr><td colspan="4">需要 JavaScript 才能動態計算；高標、低標表格不受影響。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="warning" id="c-go">
+          完賽前 60–90 分鐘前往終點：18:45–19:15。
+        </div>
+      </div>
+
+      <p class="note">
+        若實際入水時間晚於 08:00，相同分段用時所推算的鐘點會往後順延。
+        高低標是兩組規劃情境，不代表實際表現必然落在此範圍。
+      </p>
+    </section>
+
+    <section id="day0">
+      <h2>11/18（三）｜前往桃園機場</h2>
+
+      <div class="row">
+        <div class="time">21:30 左右</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>桃園第一航廈集合、報到</h3>
+          <p>預留行李與車箱處理時間，依航空公司要求調整。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="day1">
+      <h2>11/19（四）｜抵達、報到與入住</h2>
+
+      <div class="row">
+        <div class="time">00:30–05:10</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>AK177 桃園 → 吉隆坡第二航廈</h3>
+          <p>機上休息。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">05:10–08:25</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>吉隆坡轉機</h3>
+          <p>早餐、確認轉機及行李方式。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">08:25–09:35</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>AK6306 吉隆坡 → 蘭卡威</h3>
+          <p>09:35 預定抵達。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">09:35–11:00</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>領行李、車箱、租車取車 → MIEC</h3>
+          <p>不是已確認車程。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">11:00–12:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>MIEC 報到、領物資</h3>
+          <p>原附件報到開放時間為 11:00–18:00。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:00–13:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>午餐</h3>
+          <p>報到後用餐。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">13:00–14:00</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>前往飯店、寄放行李或入住</h3>
+          <p>實際入住時刻待確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">14:00–16:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>組車、裝備檢查、休息</h3>
+          <p>加油團協助採買。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">16:00–17:00</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>返回 MIEC</h3>
+          <p>依交通調整。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">17:00–19:30</div>
+        <div>
+          <span class="badge fixed">官方</span>
+          <h3>MIEC Welcome Function</h3>
+          <p>
+            原附件安排為 Race Director Update＋晚餐，限選手；
+            加油團另行用餐。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">活動後</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>返回飯店休息</h3>
+          <p>不追加行程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="day2">
+      <h2>11/20（五）｜賽前準備、寄車與寄袋</h2>
+
+      <div class="row">
+        <div class="time">07:30–08:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>早餐</h3>
+          <p>不安排額外早起活動。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">08:30–09:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>選手既定短活動、車況確認</h3>
+          <p>試游／試騎依選手計畫及官方允許規定。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">09:30–11:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>整理 Bike Gear Bag、Run Gear Bag</h3>
+          <p>選手最後確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">11:00–12:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>午餐、裝車</h3>
+          <p>攜帶自行車與裝備袋。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:00–12:30</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>前往 Holiday Villa（T1）</h3>
+          <p>車程、停車與步行待確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:30–13:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>T1 寄車與 Bike Gear Bag</h3>
+          <p>原附件開放時間為 12:30–18:00。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">13:00</div>
+        <div>
+          <span class="badge fixed">官方</span>
+          <h3>T1 Transition Tour</h3>
+          <p>原附件一般導覽另有 15:00、17:00 場次。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">導覽後–14:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>前往 MIEC（T2）寄放 Run Gear Bag</h3>
+          <p>原附件開放時間為 12:30–18:00。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">14:30–15:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>確認 T2 動線，可參加 15:00 導覽</h3>
+          <p>不假設單一導覽帶選手往返兩站。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:30–16:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>返回飯店休息</h3>
+          <p>不追加觀光。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">16:30–17:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>加油團確認交通、集合與分工</h3>
+          <p>選手休息。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">17:30–18:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>晚餐</h3>
+          <p>配合選手慣用飲食。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">18:30–19:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>確認比賽日上午用品</h3>
+          <p>依 Athlete Guide 核對。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">19:30 起</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>準備就寢</h3>
+          <p>不再外出。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="day3">
+      <h2>11/21（六）｜全程 IM 比賽日</h2>
+
+      <div class="row">
+        <div class="time">04:00–04:45</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>起床、早餐、準備</h3>
+          <p>加油團備妥賽後衣物。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">04:45–05:15</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>最後確認</h3>
+          <p>一位窗口統一核對。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">05:15–05:45</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>前往 Holiday Villa、停車與步行</h3>
+          <p>依車程及交通管制調整。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">05:45–06:45</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>選手進 T1 準備</h3>
+          <p>
+            原附件全程 T1 開放 05:45–07:15；
+            不假設陪同者可進入。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">06:45–07:15</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>起跑準備、加油團移往觀賽區</h3>
+          <p>依排位及現場指示。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">07:45 起</div>
+        <div>
+          <span class="badge fixed">官方</span>
+          <h3>全程 IM Rolling Start</h3>
+          <p>
+            原附件全程首發為 07:45，不是 70.3 的 07:15。
+            本隊預估入水採 08:00。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">08:00</div>
+        <div>
+          <span class="badge">預估</span>
+          <h3>本隊選手入水</h3>
+          <p>此時間為高標與低標時間表的起算基準。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">游泳至離開 T1</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>下水點／T1 加油</h3>
+          <p>
+            高標 09:40 上岸、09:46 開始騎車；
+            低標 09:45 上岸、09:51 開始騎車。
+            依允許觀賽動線安排。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">自行車賽段</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>加油團早餐、輪流休息、追蹤進度</h3>
+          <p>不預設開車追選手。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">預估抵達 T2 前</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>決定是否前往 MIEC 觀賽</h3>
+          <p>
+            高標 15:56 進 T2，低標 16:21 進 T2。
+            須確認交通、停車及觀賽規定。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">跑步賽段</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>固定觀賽點加油</h3>
+          <p>
+            高標 16:00 開跑，低標 16:25 開跑。
+            觀賽地點待路線及分段確認。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">預估完賽前 60–90 分鐘</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>前往 Pelangi 終點</h3>
+          <p>
+            高標對應 18:45–19:15；
+            低標對應 19:35–20:05。
+            先確認會合動線及返程車輛，並依即時進度調整。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">高標 20:15／低標 21:05</div>
+        <div>
+          <span class="badge">預估</span>
+          <h3>選手完賽</h3>
+          <p>依實際進度及現場動線會合。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">完賽後</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>換衣、用餐、返回飯店</h3>
+          <p>一人陪選手、一人交通、一人物品及聯絡。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="day4">
+      <h2>11/22（日）｜領車、打包與返程</h2>
+
+      <div class="row">
+        <div class="time">07:30–08:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>起床、早餐</h3>
+          <p>依完賽時間調整，領車仍須於 11:00 前完成。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">08:30–09:00</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>前往 MIEC</h3>
+          <p>車程與停車待確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">09:00–10:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>領車、Gear Bag、Personal Needs Bag</h3>
+          <p>原附件開放 08:00–11:00，代領規則待確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">10:00–10:30</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>返回飯店</h3>
+          <p>依交通調整。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">10:30–12:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>拆車裝箱、打包</h3>
+          <p>退房時間與打包空間需飯店確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:00–13:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>午餐</h3>
+          <p>優先完成行李。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">13:00–14:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>休息、最後整理</h3>
+          <p>延後退房或休息空間需事先安排。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">14:30–15:00</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>裝車、離開飯店</h3>
+          <p>核對車箱、行李與證件。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:00–15:30</div>
+        <div>
+          <span class="badge">暫估</span>
+          <h3>前往機場、還車</h3>
+          <p>暫以機場還車安排，交接方式待確認。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:30–18:30</div>
+        <div>
+          <span class="badge">建議</span>
+          <h3>報到、託運車箱、候機</h3>
+          <p>依航空公司要求調整。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">18:30–19:45</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>AK6317 蘭卡威 → 吉隆坡第二航廈</h3>
+          <p>原訂位附件時間。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">19:45–23:40</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>吉隆坡轉機、晚餐與休息</h3>
+          <p>轉機 3 小時 55 分鐘。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">23:40</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>AK178 吉隆坡 → 桃園</h3>
+          <p>隔日抵達。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="day5">
+      <h2>11/23（一）｜抵達台灣</h2>
+
+      <div class="row">
+        <div class="time">04:40</div>
+        <div>
+          <span class="badge fixed">航班</span>
+          <h3>抵達桃園第一航廈</h3>
+          <p>AK178 原訂位附件預定抵達時間。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">抵達後</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>入境、領行李與車箱</h3>
+          <p>不固定完成時間。</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">領取完成後</div>
+        <div>
+          <span class="badge">彈性</span>
+          <h3>接送返家</h3>
+          <p>車輛須容納人員、車箱與行李。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>比賽日與週日備案</h2>
+
+      <ul>
+        <li>
+          原附件預估全程首位完賽 17:15、
+          最後完賽約隔日 00:55，並非本隊選手目標。
+        </li>
+        <li>
+          本隊以 08:00 入水計算，
+          高標總用時 12:15、20:15 完賽；
+          低標總用時 13:05、21:05 完賽。
+        </li>
+        <li>
+          原附件週六 MIEC 領車及 Gear Bag 時段為
+          18:30–22:00；主方案選擇週日領取。
+        </li>
+        <li>
+          Personal Needs Bag 依原附件週日才可領取；
+          代領規則與證明待確認。
+        </li>
+        <li>
+          原附件週日 11:00 世錦賽資格遞補、
+          12:00 分齡頒獎為可選活動。
+          若參加，需提前領車打包並核對活動場地。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>加油團分工</h2>
+
+      <ul>
+        <li>A：選手聯絡、賽後衣物、終點接應。</li>
+        <li>B：租車、交通、停車、夜間返程與行李。</li>
+        <li>C：追蹤分段、觀賽位置與集合時間更新。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>出發前確認</h2>
+
+      <ul>
+        <li>
+          飯店正式入住／退房時刻，
+          延後退房或拆車打包及休息空間。
+        </li>
+        <li>
+          租車能否容納 4 人、車箱與行李，
+          以及取還車方式。
+        </li>
+        <li>比賽日管制、停車、觀賽規定及接駁表。</li>
+        <li>依選手實際進度調整觀賽與終點會合。</li>
+        <li>代領自行車及裝備規則。</li>
+        <li>
+          原附件機票列有 3 位乘客，
+          第 4 人航班與行李仍待確認。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>資料依據與版本</h2>
+
+      <p>
+        行程沿用先前提供的官方 2026 Event Schedule、
+        Itinerary.pdf、活動點截圖，
+        以及報到與 T2 同地點的確認。
+      </p>
+
+      <p>
+        版本：2026/11/17（新增自訂輸入）。
+        已寫入高標與低標分段時間，
+        並以 08:00 入水計算各段鐘點。
+      </p>
+
+      <p>
+        本次僅調整網頁功能與預估時間，
+        未重新查核最新賽程、航班、交通或場地規則。
+        請以最新官方公告與訂位資訊為準。
+      </p>
+
+      <p>
+        公開版本省略姓名、訂位代碼與證件。
+        地圖為名稱搜尋，未驗證比賽入口或即時車程。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    行程規劃分享頁｜非主辦單位官方網站
+  </footer>
+
+  <script>
+    // 地圖及高低標切換不需要 JavaScript；自訂輸入才使用以下程式。
+    (function () {
+      var printBtn = document.getElementById("print-button");
+      if (printBtn) {
+        printBtn.addEventListener("click", function () { window.print(); });
+      }
+
+      var ids = ["start", "swim", "t1", "bike", "t2", "run"];
+      var presets = {
+        high: { start: "08:00", swim: "1:40", t1: "0:06", bike: "6:10", t2: "0:04", run: "4:15" },
+        low:  { start: "08:00", swim: "1:45", t1: "0:06", bike: "6:30", t2: "0:04", run: "4:40" }
+      };
+      var steps = [
+        ["游泳", "swim", "上岸"],
+        ["T1", "t1", "開始騎車"],
+        ["自行車", "bike", "進 T2"],
+        ["T2", "t2", "開始跑步"],
+        ["跑步", "run", "完賽"]
+      ];
+      var el = {};
+      for (var i = 0; i < ids.length; i++) {
+        el[ids[i]] = document.getElementById("c-" + ids[i]);
+        if (!el[ids[i]]) { return; }
+      }
+
+      function parse(v) {
+        v = String(v || "").trim().replace("：", ":").replace(".", ":");
+        var m = v.match(/^(\d{1,2}):(\d{1,2})$/);
+        if (!m) {
+          if (/^\d{3,4}$/.test(v)) {
+            m = [v, v.slice(0, -2), v.slice(-2)];
+          } else {
+            return null;
+          }
+        }
+        var h = parseInt(m[1], 10), mm = parseInt(m[2], 10);
+        if (mm > 59) { return null; }
+        return h * 60 + mm;
+      }
+      function pad(n) { return (n < 10 ? "0" : "") + n; }
+      function dur(min) { return Math.floor(min / 60) + ":" + pad(min % 60); }
+      function clock(min) {
+        var day = Math.floor(min / 1440), m = ((min % 1440) + 1440) % 1440;
+        return pad(Math.floor(m / 60)) + ":" + pad(m % 60) + (day > 0 ? "（隔日）" : "");
+      }
+
+      function save() {
+        try {
+          var o = {};
+          for (var i = 0; i < ids.length; i++) { o[ids[i]] = el[ids[i]].value; }
+          localStorage.setItem("im2026-custom", JSON.stringify(o));
+        } catch (e) {}
+      }
+      function load() {
+        try {
+          var o = JSON.parse(localStorage.getItem("im2026-custom") || "null");
+          if (o) {
+            for (var i = 0; i < ids.length; i++) {
+              if (o[ids[i]]) { el[ids[i]].value = o[ids[i]]; }
+            }
+          }
+        } catch (e) {}
+      }
+
+      function calc() {
+        var v = {}, ok = true;
+        for (var i = 0; i < ids.length; i++) {
+          var p = parse(el[ids[i]].value);
+          if (ids[i] === "start" && p !== null && p >= 1440) { p = null; }
+          el[ids[i]].className = p === null ? "invalid" : "";
+          if (p === null) { ok = false; }
+          v[ids[i]] = p;
+        }
+        var body = document.getElementById("c-body");
+        if (!ok) {
+          body.innerHTML = '<tr><td colspan="4">請以「時:分」輸入，例如 1:40；紅框欄位格式不正確。</td></tr>';
+          document.getElementById("c-sum-total").textContent = "—";
+          document.getElementById("c-sum-finish").textContent = "—";
+          document.getElementById("c-go").textContent = "請先修正輸入格式。";
+          return;
+        }
+        var html = "", acc = 0;
+        for (var j = 0; j < steps.length; j++) {
+          acc += v[steps[j][1]];
+          html += "<tr><td>" + steps[j][0] + "</td><td>" + dur(v[steps[j][1]]) +
+            "</td><td>" + dur(acc) + '</td><td class="clock">' +
+            clock(v.start + acc) + " " + steps[j][2] + "</td></tr>";
+        }
+        html += '<tr class="total-row"><td>合計</td><td>' + dur(acc) + "</td><td>" +
+          dur(acc) + '</td><td class="clock">' + clock(v.start + acc) + "</td></tr>";
+        body.innerHTML = html;
+        var fin = v.start + acc;
+        document.getElementById("c-sum-start").textContent = clock(v.start);
+        document.getElementById("c-sum-total").textContent = dur(acc);
+        document.getElementById("c-sum-finish").textContent = clock(fin);
+        document.getElementById("c-go").textContent =
+          "完賽前 60–90 分鐘前往終點：" + clock(fin - 90) + "–" + clock(fin - 60) +
+          "。這是倒推的規劃鐘點，請依即時進度調整。";
+      }
+
+      for (var k = 0; k < ids.length; k++) {
+        el[ids[k]].addEventListener("input", function () { calc(); save(); });
+      }
+      var btns = document.querySelectorAll("[data-preset]");
+      for (var b = 0; b < btns.length; b++) {
+        btns[b].addEventListener("click", function () {
+          var p = presets[this.getAttribute("data-preset")];
+          for (var i = 0; i < ids.length; i++) { el[ids[i]].value = p[ids[i]]; }
+          calc(); save();
+        });
+      }
+      load();
+      calc();
+    })();
+  </script>
+</body>
+</html>
