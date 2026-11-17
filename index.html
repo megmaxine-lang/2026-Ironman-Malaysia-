@@ -17,7 +17,7 @@ nav a{background:#eef4fa;padding:4px 12px;border-radius:20px;text-decoration:non
 main{padding:24px 15px}
 section{background:#fff;border-radius:14px;padding:24px;margin-bottom:22px;border:1px solid #dce5ef}
 h2{margin-top:0;font-size:23px}
-h3{font-size:17px;margin:5px 0}
+h3{font-size:17px;margin:18px 0 6px}
 p{margin:6px 0;color:#52667a}
 header p{color:#e0eaf5}
 .row{display:grid;grid-template-columns:190px 1fr;gap:18px;border-top:1px solid #e6edf4;padding:16px 0}
@@ -34,12 +34,14 @@ iframe{width:100%;height:420px;border:1px solid #dce5ef;border-radius:12px;backg
 .place{background:#f1f6fb;border-radius:9px;padding:14px}
 .place button{padding:5px 10px;font-size:13px;margin-top:7px}
 small{color:#52667a}
-table{width:100%;border-collapse:collapse;margin-top:8px}
-th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #e6edf4;vertical-align:middle}
-th{font-size:13px;color:#52667a;font-weight:650}
+.tabs{display:flex;gap:8px;margin:12px 0}
+.tabs button{background:#eef4fa;color:#153451}
+.tabs button.on{background:#087974;color:#fff}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #e6edf4}
+th{font-size:13px;color:#52667a}
 .clock{font-variant-numeric:tabular-nums;color:#153451;font-weight:650}
-.total-row{background:#f1f6fb}
-.split{width:7.2em;padding:8px;font:inherit;border:1px solid #bdccda;border-radius:8px}
+.total-row{background:#f1f6fb;font-weight:650}
 footer{text-align:center;padding:20px;color:#607489;font-size:13px}
 @media(max-width:650px){
 .row,.grid{grid-template-columns:1fr}
@@ -48,23 +50,16 @@ footer{text-align:center;padding:20px;color:#607489;font-size:13px}
 iframe{height:330px}
 section{padding:18px}
 nav a{font-size:13px}
-table,thead,tbody,tr,th,td{display:block}
-thead{display:none}
-tr{border:1px solid #e6edf4;border-radius:10px;margin:0 0 10px;padding:8px}
-td{border:0;padding:4px 8px}
-td::before{content:attr(data-label);display:block;font-size:12px;color:#607489}
 }
 @media print{
-nav,button,.controls,.actions,iframe,.split{display:none}
+nav,button,.controls,.actions,iframe{display:none}
 body{background:#fff}
 header{background:#fff;color:#24364a}
 header p{color:#52667a}
 .row,tr{break-inside:avoid}
 section{border-radius:0}
-h2{break-after:avoid}
-.print-split{display:inline!important}
+.sheet{display:block!important}
 }
-.print-split{display:none}
 </style>
 </head>
 <body>
@@ -108,23 +103,42 @@ h2{break-after:avoid}
 </section>
 <section id="estimate">
 <h2>選手預估比賽時間</h2>
-<p>在「預估用時」填這段要花多久，格式 <strong>時:分</strong>（例如游泳 <strong>1:10</strong>、自行車 <strong>6:00</strong>）。頁面用入水 <strong>08:00</strong> 自動算出預計鐘點。這是本隊目標，不是官方 07:45 首發，也不是成績保證。</p>
-<div style="overflow-x:auto">
+<p>入水以 <strong>08:00</strong> 計算。官方 Rolling Start 首發是 07:45，本表是本隊目標，不是成績保證。T1 皆為 0:06，T2 皆為 0:04。</p>
+<div class="tabs">
+<button type="button" id="tab-high" class="on">高標 20:15</button>
+<button type="button" id="tab-low">低標 21:05</button>
+</div>
+<div id="sheet-high" class="sheet">
+<h3>高標｜總用時 12:15｜完賽 20:15</h3>
 <table>
 <thead><tr><th>項目</th><th>距離</th><th>預估用時</th><th>累計</th><th>預計鐘點</th></tr></thead>
 <tbody>
-<tr><td data-label="項目">游泳</td><td data-label="距離">3.8 km</td><td data-label="預估用時"><input class="split" id="swim" inputmode="numeric" placeholder="1:10" aria-label="游泳預估用時"><span class="print-split" id="swim-print"></span></td><td class="clock" data-label="累計" id="swim-cum">待填</td><td class="clock" data-label="預計鐘點" id="swim-clock">待填</td></tr>
-<tr><td data-label="項目">T1</td><td data-label="距離">轉換</td><td data-label="預估用時"><input class="split" id="t1" inputmode="numeric" placeholder="0:08" aria-label="T1 預估用時"><span class="print-split" id="t1-print"></span></td><td class="clock" data-label="累計" id="t1-cum">待填</td><td class="clock" data-label="預計鐘點" id="t1-clock">待填</td></tr>
-<tr><td data-label="項目">自行車</td><td data-label="距離">180 km</td><td data-label="預估用時"><input class="split" id="bike" inputmode="numeric" placeholder="6:00" aria-label="自行車預估用時"><span class="print-split" id="bike-print"></span></td><td class="clock" data-label="累計" id="bike-cum">待填</td><td class="clock" data-label="預計鐘點" id="bike-clock">待填</td></tr>
-<tr><td data-label="項目">T2</td><td data-label="距離">轉換</td><td data-label="預估用時"><input class="split" id="t2" inputmode="numeric" placeholder="0:06" aria-label="T2 預估用時"><span class="print-split" id="t2-print"></span></td><td class="clock" data-label="累計" id="t2-cum">待填</td><td class="clock" data-label="預計鐘點" id="t2-clock">待填</td></tr>
-<tr><td data-label="項目">跑步</td><td data-label="距離">42.195 km</td><td data-label="預估用時"><input class="split" id="run" inputmode="numeric" placeholder="4:30" aria-label="跑步預估用時"><span class="print-split" id="run-print"></span></td><td class="clock" data-label="累計" id="run-cum">待填</td><td class="clock" data-label="預計鐘點" id="run-clock">待填</td></tr>
-<tr class="total-row"><td data-label="項目">預估完賽</td><td data-label="距離">226.2 km</td><td data-label="預估用時" id="total-split">待填</td><td class="clock" data-label="累計" id="total-cum">待填</td><td class="clock" data-label="預計鐘點" id="total-clock">待填</td></tr>
+<tr><td>游泳</td><td>3.8 km</td><td>1:40</td><td>1:40</td><td class="clock">09:40 上岸</td></tr>
+<tr><td>T1</td><td>轉換</td><td>0:06</td><td>1:46</td><td class="clock">09:46 離開 T1</td></tr>
+<tr><td>自行車</td><td>180 km</td><td>6:10</td><td>7:56</td><td class="clock">15:56 進 T2</td></tr>
+<tr><td>T2</td><td>轉換</td><td>0:04</td><td>8:00</td><td class="clock">16:00 開跑</td></tr>
+<tr><td>跑步</td><td>42.195 km</td><td>4:15</td><td>12:15</td><td class="clock">20:15 完賽</td></tr>
+<tr class="total-row"><td>預估完賽</td><td>226.2 km</td><td>12:15</td><td>12:15</td><td class="clock">20:15</td></tr>
 </tbody>
 </table>
+<p>前往 Pelangi：約 <strong>18:45–19:15</strong>（完賽前 60–90 分鐘）。</p>
 </div>
-<div class="warning" id="pace-note">填完五段後，這裡會列出上岸、離開 T1、進 T2、開跑、完賽，以及終點前 60–90 分鐘該出發的時間。</div>
-<ul id="pace-list"></ul>
-<p><small>這台裝置會記住你填的用時；換手機或別人開連結看不到，除非把五個時間回覆給我寫進網頁。</small></p>
+<div id="sheet-low" class="sheet" hidden>
+<h3>低標｜總用時 13:05｜完賽 21:05</h3>
+<table>
+<thead><tr><th>項目</th><th>距離</th><th>預估用時</th><th>累計</th><th>預計鐘點</th></tr></thead>
+<tbody>
+<tr><td>游泳</td><td>3.8 km</td><td>1:45</td><td>1:45</td><td class="clock">09:45 上岸</td></tr>
+<tr><td>T1</td><td>轉換</td><td>0:06</td><td>1:51</td><td class="clock">09:51 離開 T1</td></tr>
+<tr><td>自行車</td><td>180 km</td><td>6:30</td><td>8:21</td><td class="clock">16:21 進 T2</td></tr>
+<tr><td>T2</td><td>轉換</td><td>0:04</td><td>8:25</td><td class="clock">16:25 開跑</td></tr>
+<tr><td>跑步</td><td>42.195 km</td><td>4:40</td><td>13:05</td><td class="clock">21:05 完賽</td></tr>
+<tr class="total-row"><td>預估完賽</td><td>226.2 km</td><td>13:05</td><td>13:05</td><td class="clock">21:05</td></tr>
+</tbody>
+</table>
+<p>前往 Pelangi：約 <strong>19:35–20:05</strong>（完賽前 60–90 分鐘）。</p>
+</div>
+<div class="warning">若實際入水晚於 08:00，整張表的鐘點要往後順延，用時不變。</div>
 </section>
 <section id="day0"><h2>11/18（三）｜前往桃園機場</h2>
 <div class="row"><div class="time">21:30 左右</div><div><span class="badge">建議</span><h3>桃園第一航廈集合、報到</h3><p>預留行李與車箱處理時間，依航空公司要求調整。</p></div></div></section>
@@ -142,4 +156,10 @@ h2{break-after:avoid}
 <div class="row"><div class="time">活動後</div><div><span class="badge">建議</span><h3>返回飯店休息</h3><p>不追加行程。</p></div></div></section>
 <section id="day2"><h2>11/20（五）｜賽前準備、寄車與寄袋</h2>
 <div class="row"><div class="time">07:30–08:30</div><div><span class="badge">建議</span><h3>早餐</h3><p>不安排額外早起活動。</p></div></div>
-<div class="row"><div class="time">08:30–09:30</div><div><span class="badge">建議</span><h3>選手既定短活動
+<div class="row"><div class="time">08:30–09:30</div><div><span class="badge">建議</span><h3>選手既定短活動、車況確認</h3><p>試游／試騎依選手計畫及官方允許規定。</p></div></div>
+<div class="row"><div class="time">09:30–11:00</div><div><span class="badge">建議</span><h3>整理 Bike Gear Bag、Run Gear Bag</h3><p>選手最後確認。</p></div></div>
+<div class="row"><div class="time">11:00–12:00</div><div><span class="badge">建議</span><h3>午餐、裝車</h3><p>攜帶自行車與裝備袋。</p></div></div>
+<div class="row"><div class="time">12:00–12:30</div><div><span class="badge">暫估</span><h3>前往 Holiday Villa（T1）</h3><p>車程、停車與步行待確認。</p></div></div>
+<div class="row"><div class="time">12:30–13:00</div><div><span class="badge">建議</span><h3>T1 寄車與 Bike Gear Bag</h3><p>官方開放 12:30–18:00。</p></div></div>
+<div class="row"><div class="time">13:00</div><div><span class="badge fixed">官方</span><h3>T1 Transition Tour</h3><p>一般導覽另有 15:00、17:00 場次。</p></div></div>
+<div 
